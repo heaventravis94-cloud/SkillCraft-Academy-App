@@ -97,5 +97,9 @@
 
   body {
     @apply bg-background text-foreground;
+    background-image: url('/scabackground.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
   }
 }
