@@ -142,7 +142,7 @@ const generateRandomActivity = (index: number): Activity => {
   const numInstructions = getRandomNumber(6, 12);
   const instructions = Array.from({ length: numInstructions }, (_, i) => ({
     description: `Step ${i + 1}: Follow this detailed instruction to complete part of the task.`,
-    isCompleted: true, // Mark all generated steps as complete
+    isCompleted: false, // Mark all generated steps as incomplete
   }));
 
   const numTroubleshootingTips = getRandomNumber(0, 4);
@@ -169,7 +169,7 @@ const generateRandomActivity = (index: number): Activity => {
     instructions,
     troubleshootingTips: troubleshootingTips.length > 0 ? troubleshootingTips : undefined,
     notes: "",
-    isCompleted: true, // Mark all generated activities as complete
+    isCompleted: false, // Mark all generated activities as incomplete
     isFavorite: false,
   };
 };
@@ -198,16 +198,16 @@ export const initialActivities: Activity[] = [
     ],
     safetyNotes: "Handle hot dutch oven with care. Use oven mitts.",
     instructions: [
-      { description: "Feed your sourdough starter 8-12 hours before baking.", isCompleted: true },
-      { description: "Mix flour, water, and starter in a large bowl. Autolyse for 30 minutes.", isCompleted: true },
-      { description: "Add salt and mix thoroughly. Perform stretch and folds every 30 minutes for 2-3 hours.", isCompleted: true },
-      { description: "Bulk ferment at room temperature until doubled (4-8 hours depending on temperature).", isCompleted: true },
-      { description: "Shape the dough into a round or oval and place in a floured banneton.", isCompleted: true },
-      { description: "Cold proof in the refrigerator for 12-18 hours.", isCompleted: true },
-      { description: "Preheat oven to 450°F (230°C) with dutch oven inside for 30 minutes.", isCompleted: true },
-      { description: "Score the dough, transfer to hot dutch oven, bake covered for 20 minutes.", isCompleted: true },
-      { description: "Remove lid, reduce temperature to 400°F (200°C), bake uncovered for 25-30 minutes until golden brown.", isCompleted: true },
-      { description: "Cool on a wire rack for at least 1 hour before slicing.", isCompleted: true },
+      { description: "Feed your sourdough starter 8-12 hours before baking.", isCompleted: false },
+      { description: "Mix flour, water, and starter in a large bowl. Autolyse for 30 minutes.", isCompleted: false },
+      { description: "Add salt and mix thoroughly. Perform stretch and folds every 30 minutes for 2-3 hours.", isCompleted: false },
+      { description: "Bulk ferment at room temperature until doubled (4-8 hours depending on temperature).", isCompleted: false },
+      { description: "Shape the dough into a round or oval and place in a floured banneton.", isCompleted: false },
+      { description: "Cold proof in the refrigerator for 12-18 hours.", isCompleted: false },
+      { description: "Preheat oven to 450°F (230°C) with dutch oven inside for 30 minutes.", isCompleted: false },
+      { description: "Score the dough, transfer to hot dutch oven, bake covered for 20 minutes.", isCompleted: false },
+      { description: "Remove lid, reduce temperature to 400°F (200°C), bake uncovered for 25-30 minutes until golden brown.", isCompleted: false },
+      { description: "Cool on a wire rack for at least 1 hour before slicing.", isCompleted: false },
     ],
     troubleshootingTips: [
       "If dough is too sticky, reduce water slightly next time.",
@@ -215,7 +215,7 @@ export const initialActivities: Activity[] = [
       "If starter isn't active, feed it more frequently or keep it in a warmer spot."
     ],
     notes: "",
-    isCompleted: true,
+    isCompleted: false,
     isFavorite: false,
   },
   {
@@ -235,12 +235,12 @@ export const initialActivities: Activity[] = [
     ],
     safetyNotes: "Be careful with sharp needles and scissors.",
     instructions: [
-      { description: "Cut two small fabric squares (e.g., 4x4 inches).", isCompleted: true },
-      { description: "Thread your needle and tie a knot at the end of the thread.", isCompleted: true },
-      { description: "Practice the running stitch: push needle up from back, then down from front, creating small, even stitches.", isCompleted: true },
-      { description: "Practice the backstitch: bring needle up, go back down a stitch length behind, then come up two stitch lengths ahead.", isCompleted: true },
-      { description: "Practice the whipstitch: used for joining two edges, bring needle over the edge and through both layers.", isCompleted: true },
-      { description: "Finish by tying a knot close to the fabric on the back side.", isCompleted: true },
+      { description: "Cut two small fabric squares (e.g., 4x4 inches).", isCompleted: false },
+      { description: "Thread your needle and tie a knot at the end of the thread.", isCompleted: false },
+      { description: "Practice the running stitch: push needle up from back, then down from front, creating small, even stitches.", isCompleted: false },
+      { description: "Practice the backstitch: bring needle up, go back down a stitch length behind, then come up two stitch lengths ahead.", isCompleted: false },
+      { description: "Practice the whipstitch: used for joining two edges, bring needle over the edge and through both layers.", isCompleted: false },
+      { description: "Finish by tying a knot close to the fabric on the back side.", isCompleted: false },
     ],
     troubleshootingTips: [
       "If stitches are uneven, slow down and focus on consistent spacing.",
@@ -248,7 +248,7 @@ export const initialActivities: Activity[] = [
       "If needle is hard to push through fabric, use a thimble."
     ],
     notes: "",
-    isCompleted: true,
+    isCompleted: false,
     isFavorite: false,
   },
   {
@@ -266,18 +266,18 @@ export const initialActivities: Activity[] = [
     ],
     safetyNotes: "Do not mix vinegar with bleach, as it can create toxic fumes. Test on an inconspicuous area before full use.",
     instructions: [
-      { description: "Clean and sterilize your empty spray bottle.", isCompleted: true },
-      { description: "Combine equal parts white vinegar and water in the spray bottle.", isCompleted: true },
-      { description: "Add 10-20 drops of your favorite essential oils for scent and added cleaning power (optional).", isCompleted: true },
-      { description: "Shake well before each use.", isCompleted: true },
-      { description: "Label your bottle clearly.", isCompleted: true },
+      { description: "Clean and sterilize your empty spray bottle.", isCompleted: false },
+      { description: "Combine equal parts white vinegar and water in the spray bottle.", isCompleted: false },
+      { description: "Add 10-20 drops of your favorite essential oils for scent and added cleaning power (optional).", isCompleted: false },
+      { description: "Shake well before each use.", isCompleted: false },
+      { description: "Label your bottle clearly.", isCompleted: false },
     ],
     troubleshootingTips: [
       "If the vinegar smell is too strong, add more essential oils or let it sit for a day.",
       "If it leaves streaks, try adjusting the vinegar-to-water ratio or using a microfiber cloth."
     ],
     notes: "",
-    isCompleted: true,
+    isCompleted: false,
     isFavorite: false,
   },
   {
@@ -296,15 +296,15 @@ export const initialActivities: Activity[] = [
     ],
     safetyNotes: "Be careful with scissors. Ensure your working area is clear to avoid tangling cords.",
     instructions: [
-      { description: "Cut 8 pieces of macrame cord, each 6-8 feet long.", isCompleted: true },
-      { description: "Fold each cord in half and attach all 8 folded cords to the metal ring using a Larks Head Knot.", isCompleted: true },
-      { description: "Divide the 16 hanging cords into 4 sections of 4 cords each.", isCompleted: true },
-      { description: "In each section, tie a series of Square Knots. Start with 3-4 square knots, then leave a gap of 1-2 inches.", isCompleted: true },
-      { description: "After the gap, tie another series of 3-4 square knots in each section.", isCompleted: true },
-      { description: "Now, take two cords from one section and two cords from an adjacent section. Tie a Square Knot with these 4 cords, about 4-6 inches below your previous knots. Repeat around the hanger.", isCompleted: true },
-      { description: "Gather all 16 cords together at the bottom, about 6-8 inches below the last set of knots.", isCompleted: true },
-      { description: "Tie a Gathering Knot (or a simple overhand knot) to secure all cords together, forming the basket for your plant pot.", isCompleted: true },
-      { description: "Trim the ends of the cords evenly below the gathering knot.", isCompleted: true },
+      { description: "Cut 8 pieces of macrame cord, each 6-8 feet long.", isCompleted: false },
+      { description: "Fold each cord in half and attach all 8 folded cords to the metal ring using a Larks Head Knot.", isCompleted: false },
+      { description: "Divide the 16 hanging cords into 4 sections of 4 cords each.", isCompleted: false },
+      { description: "In each section, tie a series of Square Knots. Start with 3-4 square knots, then leave a gap of 1-2 inches.", isCompleted: false },
+      { description: "After the gap, tie another series of 3-4 square knots in each section.", isCompleted: false },
+      { description: "Now, take two cords from one section and two cords from an adjacent section. Tie a Square Knot with these 4 cords, about 4-6 inches below your previous knots. Repeat around the hanger.", isCompleted: false },
+      { description: "Gather all 16 cords together at the bottom, about 6-8 inches below the last set of knots.", isCompleted: false },
+      { description: "Tie a Gathering Knot (or a simple overhand knot) to secure all cords together, forming the basket for your plant pot.", isCompleted: false },
+      { description: "Trim the ends of the cords evenly below the gathering knot.", isCompleted: false },
     ],
     troubleshootingTips: [
       "If knots are uneven, untie and retie slowly, ensuring consistent tension.",
@@ -312,7 +312,7 @@ export const initialActivities: Activity[] = [
       "If the hanger is too short/long, adjust the initial cord lengths or the spacing between knots."
     ],
     notes: "",
-    isCompleted: true,
+    isCompleted: false,
     isFavorite: false,
   },
   {
@@ -332,12 +332,12 @@ export const initialActivities: Activity[] = [
     ],
     safetyNotes: "Ensure good ventilation when working with soil. Wash hands after handling soil and plants.",
     instructions: [
-      { description: "Choose herbs suitable for indoor growing and your light conditions.", isCompleted: true },
-      { description: "Fill pots with potting mix, leaving about an inch from the rim.", isCompleted: true },
-      { description: "If using seeds, plant according to package directions. If using plants, gently remove from nursery pot and place in new pot.", isCompleted: true },
-      { description: "Water thoroughly until water drains from the bottom.", isCompleted: true },
-      { description: "Place pots in a sunny location (at least 6 hours of direct sunlight) or under a grow light.", isCompleted: true },
-      { description: "Monitor soil moisture daily and water when the top inch of soil feels dry.", isCompleted: true },
+      { description: "Choose herbs suitable for indoor growing and your light conditions.", isCompleted: false },
+      { description: "Fill pots with potting mix, leaving about an inch from the rim.", isCompleted: false },
+      { description: "If using seeds, plant according to package directions. If using plants, gently remove from nursery pot and place in new pot.", isCompleted: false },
+      { description: "Water thoroughly until water drains from the bottom.", isCompleted: false },
+      { description: "Place pots in a sunny location (at least 6 hours of direct sunlight) or under a grow light.", isCompleted: false },
+      { description: "Monitor soil moisture daily and water when the top inch of soil feels dry.", isCompleted: false },
     ],
     troubleshootingTips: [
       "If plants are leggy, they might not be getting enough light. Move to a brighter spot or add a grow light.",
@@ -345,7 +345,7 @@ export const initialActivities: Activity[] = [
       "If pests appear, try a gentle insecticidal soap or neem oil spray."
     ],
     notes: "",
-    isCompleted: true,
+    isCompleted: false,
     isFavorite: false,
   },
   ...newActivities
