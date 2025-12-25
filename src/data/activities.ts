@@ -1,5 +1,100 @@
 import { Activity, SkillLevel } from "@/types/activity";
 
+const categories = [
+  "Food and Kitchen Skills",
+  "Automotive Skills",
+  "Crafts and Sewing",
+  "Technology and Programming",
+  "Health and Safety",
+  "Arts and Creative Skills",
+  "Home Improvement",
+  "Personal Finance",
+  "Outdoor Skills",
+  "Language Learning",
+];
+
+const subCategoriesMap: { [key: string]: string[] } = {
+  "Food and Kitchen Skills": ["Knife Work", "Bread Baking and Sourdough", "Cooking Basics", "Desserts", "Beverages", "Grilling", "Baking Pastries", "Meal Prep"],
+  "Automotive Skills": ["Basic Maintenance", "Advanced Repair", "Driving Skills", "Car Detailing", "Engine Diagnostics", "Tire Care"],
+  "Crafts and Sewing": ["Hand Sewing", "Woodworking", "Knitting & Crocheting", "Painting", "Jewelry Making", "Pottery", "Origami", "Embroidery"],
+  "Technology and Programming": ["Web Development", "Mobile Development", "Data Science", "Cybersecurity", "Hardware", "Game Development", "Cloud Computing", "AI/ML Basics"],
+  "Health and Safety": ["Emergency Response", "Fitness", "Nutrition", "Mental Wellness", "Self-Defense", "Wilderness First Aid", "Stress Management"],
+  "Arts and Creative Skills": ["Photography", "Drawing", "Music", "Writing", "Digital Art", "Sculpting", "Calligraphy", "Graphic Design"],
+  "Home Improvement": ["Plumbing", "Electrical", "Carpentry", "Gardening", "Painting & Decorating", "Tiling", "Smart Home Setup", "Furniture Restoration"],
+  "Personal Finance": ["Budgeting", "Investing", "Debt Management", "Saving", "Retirement Planning", "Tax Preparation", "Credit Score Management"],
+  "Outdoor Skills": ["Camping", "Hiking", "Survival", "Fishing", "Navigation", "Rock Climbing", "Kayaking", "Bushcraft"],
+  "Language Learning": ["Spanish", "French", "German", "Japanese", "Mandarin", "Italian", "Korean", "Arabic"],
+};
+
+const skillLevels = [SkillLevel.Beginner, SkillLevel.Intermediate, SkillLevel.Advanced];
+
+const getRandomElement = <T>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];
+const getRandomNumber = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+const generateRandomActivity = (index: number): Activity => {
+  const category = getRandomElement(categories);
+  const subCategoryOptions = subCategoriesMap[category] || [];
+  const subCategory = subCategoryOptions.length > 0 ? getRandomElement(subCategoryOptions) : undefined;
+  const skillLevel = getRandomElement(skillLevels);
+  const estimatedTime = `${getRandomNumber(20, 180)} minutes`;
+
+  const titles = [
+    `Mastering ${subCategory || category} Fundamentals`,
+    `Introduction to ${subCategory || category} Techniques`,
+    `Advanced ${subCategory || category} Strategies`,
+    `DIY ${subCategory || category} Project: Build a Small Item`,
+    `Quick Guide to ${subCategory || category} Basics`,
+    `Exploring ${subCategory || category} for Beginners`,
+    `Deep Dive into ${subCategory || category} Concepts`,
+    `Hands-on ${subCategory || category} Workshop`,
+    `The Art of ${subCategory || category}`,
+    `Essential ${subCategory || category} Skills`,
+  ];
+  const title = getRandomElement(titles);
+
+  const numSupplies = getRandomNumber(3, 8);
+  const suppliesList = Array.from({ length: numSupplies }, (_, i) => `Required tool/material ${i + 1} for this activity.`);
+
+  const numInstructions = getRandomNumber(6, 12);
+  const instructions = Array.from({ length: numInstructions }, (_, i) => ({
+    description: `Step ${i + 1}: Follow this detailed instruction to complete part of the task.`,
+    isCompleted: false,
+  }));
+
+  const numTroubleshootingTips = getRandomNumber(0, 4);
+  const troubleshootingTips = Array.from({ length: numTroubleshootingTips }, (_, i) => `Troubleshooting tip ${i + 1}: Common issue and its solution.`);
+
+  const safetyNotesOptions = [
+    `Always prioritize safety. Read all instructions before starting.`,
+    `Ensure proper ventilation and use protective gear as needed.`,
+    `Be mindful of sharp objects or electrical components.`,
+    `Follow all local safety guidelines for this type of activity.`,
+    `No specific safety notes for this activity, but always exercise caution.`,
+  ];
+  const safetyNotes = getRandomElement(safetyNotesOptions);
+
+  return {
+    id: `activity-${10 + index}`,
+    title: `${title} (Activity ${10 + index})`,
+    category,
+    subCategory,
+    skillLevel,
+    estimatedTime,
+    suppliesList,
+    safetyNotes,
+    instructions,
+    troubleshootingTips: troubleshootingTips.length > 0 ? troubleshootingTips : undefined,
+    notes: "",
+    isCompleted: false,
+    isFavorite: false,
+  };
+};
+
+const newActivities: Activity[] = [];
+for (let i = 0; i < 190; i++) {
+  newActivities.push(generateRandomActivity(i));
+}
+
 export const initialActivities: Activity[] = [
   {
     id: "1",
@@ -359,5 +454,6 @@ export const initialActivities: Activity[] = [
     notes: "",
     isCompleted: false,
     isFavorite: false
-  }
+  },
+  ...newActivities
 ];
